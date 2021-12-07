@@ -1,10 +1,49 @@
-
-<title>Opening in </title>
-
-
-
-
+<html>
+<style>
+	p {
+        margin-top: 25%;
+        text-align: center;
+        font-size: 100px;
+        font-family: Arial;
+        font-weight: 700;
+    }
+    
+    body {
+    	background-image: url(https://media.istockphoto.com/photos/question-marks-3d-picture-id589553688?k=20&m=589553688&s=612x612&w=0&h=2n-r0vvTJtLQnUTA5dORbZnh2f81j0WnttjekJDuEkk=);
+    }
+</style>
 <body>
-<img id="hiddenImage" class="hidden" width="400" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FHeart_symbol&psig=AOvVaw26pcHBTCjPj0tqhxREKHT8&ust=1638969580912000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLi60NDj0fQCFQAAAAAdAAAAABAD">
-<p id="demo"></p>
+  <div><p><span id="timer"></span></p></div>
 
+</body>
+
+</html> 
+<script>
+document.getElementById('timer').innerHTML =
+  10 + ":" + 1;
+startTimer();
+
+
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1}
+  if(m<0){
+    return
+  }
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  console.log(m)s
+  setTimeout(startTimer, 1000);
+  
+}
+
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
+}
+</script>
